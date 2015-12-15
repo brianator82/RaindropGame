@@ -9,7 +9,7 @@ class Raindrop {
     c= color(0, random(50, 60), random(225, 255));
     vel= PVector.random2D();
     vel.mult(2);
-    g = new PVector(0,.4);
+    g = new PVector(0,.3);
   }
   void display() {
     fill(c);
@@ -27,6 +27,12 @@ class Raindrop {
     vel.add(g);
     loc.add(vel);
   }
-  void isInContactwith(){
-    
+  boolean isInContactWith(PVector bucket){
+    loc.dist(mouse);
+    if(loc.dist(mouse)< diam/2){
+     return true;
+    }else{
+      return false;
+    }
+  }
 }
